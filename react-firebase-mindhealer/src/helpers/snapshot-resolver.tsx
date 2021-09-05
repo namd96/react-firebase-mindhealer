@@ -1,7 +1,7 @@
 import { onSnapshot } from "@firebase/firestore";
 
 export const snapshotListener = (q, callback) => {
-    onSnapshot(q, (querySnapshot) => {
+   return onSnapshot(q, (querySnapshot) => {
         const snapShotData = [];
         if (!querySnapshot) {
             callback([])

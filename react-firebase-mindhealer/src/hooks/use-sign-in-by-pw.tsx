@@ -17,6 +17,11 @@ const useSignIn = (props) => {
 
     function signInUsers(payload) {
         let userObj = { _uid: '' };
+
+        // uc = await signInWithEmailAndPassword();
+        // up = await getDocs(query())
+        // soc = up.docs[0]
+
         signInWithEmailAndPassword(auth, payload.un, payload.pw)
             .then(userCredential => {
                 userObj = {
@@ -40,11 +45,9 @@ const useSignIn = (props) => {
                     ...docSnap.data(), // type name _uid
                     _id: docSnap.id    // _id of profile
                 };
-                console.log('[userObj] ', userObj);
-
                 GlobalContext.setAuth(true);
                 GlobalContext.setUserProfile(userObj);
-                Router.push("/");
+                // Router.push("/");
             })
             .catch(anyError => {
                 console.log('[uspw] [anyError]', anyError);

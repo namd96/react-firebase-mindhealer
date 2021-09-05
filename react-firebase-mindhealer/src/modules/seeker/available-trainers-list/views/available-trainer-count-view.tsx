@@ -6,12 +6,12 @@ interface IAvailableTrainerListView {
 const AvailableTrainerCountView = (props: IAvailableTrainerListView) => {
   let { trainerCount } = props;
   // maybe we will show list of trainers here
-  return <div>
+  return <div className="flex-row-center">
     
       {
-         <h1> {trainerCount} </h1>
+      <div className="flex-col-center">   <h1> {trainerCount} </h1> (available trainers) </div>
         || <>
-          Sorry, No Trainers Available Right Now
+         Sorry, No Trainers Available Right Now
         </>
       }
 

@@ -19,7 +19,6 @@ const PendingSessionRequestsController = props => {
         updateTrainer(trainerID, false);
         //startSession(session, { trainerID, trainerUID });
     }
-    console.log("pendingSessions", pendingSessions);
     return <div>
         {
             pendingSessions.length ? pendingSessions.map((sess, idx) => {

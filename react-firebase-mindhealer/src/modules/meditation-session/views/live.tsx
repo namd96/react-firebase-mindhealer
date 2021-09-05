@@ -1,11 +1,11 @@
-import ReactṆ, { useContext } from "react"
+import React, { useContext } from "react"
 import globalContext from "../../../global-state-manager/global-context";
 interface ILiveView {
-    session, timer, sessionStartedOn, handleEndSession, handleLeaveSession
+    session, timer, sessionStartedOn, handleEndSession
 }
 const LiveView = (props:ILiveView) => {
     const GlobalContext = useContext(globalContext)
-    let {session, timer, sessionStartedOn, handleEndSession, handleLeaveSession} = props;
+    let {session, timer, sessionStartedOn, handleEndSession} = props;
     return <>
      <div>
          {session? <div> 
@@ -19,7 +19,7 @@ const LiveView = (props:ILiveView) => {
              <div>
                 STARTED ON:  {new Date(sessionStartedOn).toLocaleString()}
              </div>
-             {GlobalContext.userProfile.type=='trainer'
+             {!GlobalContext.userProfile.isSeeker
              ?<button onClick={handleEndSession}>
                  END now
              </button>:''}

@@ -2,7 +2,6 @@ import { collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../config/firebase-config";
 import { doc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged, sendSignInLinkToEmail, signInAnonymously } from "firebase/auth";
-import Router from "next/dist/client/router";
 
 export const unsub = onSnapshot(doc(db, "users", "seekers"), (doc) => {
   console.log("Current data: ", doc.data());
@@ -20,7 +19,6 @@ export async function getTrainers() {
       last: "Lovelace",
       born: 1815
     });
-    console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
   }
@@ -43,8 +41,6 @@ export async function signInUsers_(email) {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log("error", error);
-
       // ...
     });
 

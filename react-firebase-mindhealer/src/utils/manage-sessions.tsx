@@ -20,18 +20,18 @@ export const allSessionsListener = (callback) => {
     where("status", "==", "pending"))
   snapshotListener(q, callback)
 }
-export const mySessionsListener = (isSeeker,uid,callback) => {
+export const mySessionsListener = ({isSeeker,uid, status="active"},callback) => {
   const q = query(collection(db, COLS.SESISONS),
-    where("status", "==", "active"),
+    where("status", "==", status),
     where(isSeeker?"seeker_uid":"trainer_uid", "==", uid)
     )
-  snapshotListener(q, (sessions)=>{
-    console.log('[mySessionListener]',sessions);
+  return snapshotListener(q, (sessions)=>{
+  
     let latest = null;
-
+    let timeKey = status == "active" ? "started_on" : "requested_on"
     sessions.forEach((session, idx) => {
       if(!latest) latest = session;
-      if(session.started_on.seconds>latest.started_on.seconds){
+      if(session[timeKey]?.seconds>latest[timeKey]?.seconds){
         latest =session;
       }
     });
@@ -51,7 +51,6 @@ export const updateSession = async (session, trainerUID) => {
 
 export const endSession = async (session) => {
   // handle for a case where any trainer can end any other trainer's session
-  console.log("session reff",session, COLS.SESISONS)
   let sessionRef = doc(db, COLS.SESISONS, session._id)
   return await updateDoc(sessionRef, {
     ...session,
@@ -62,7 +61,6 @@ export const endSession = async (session) => {
 
 export const updateTrainer = async (trainerID, available=false) => {
   let trainerRef = doc(db, COLS.USER_PROFILES, trainerID);
-  console.log('trainer reff',trainerID, trainerRef);
   await updateDoc(trainerRef, {
     availability: available,
   });
