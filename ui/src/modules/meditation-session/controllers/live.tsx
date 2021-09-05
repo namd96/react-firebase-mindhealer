@@ -45,8 +45,8 @@ const LiveSessionCtrl = props => {
     }
 
     const convertTimerSecondsInReadableFormat = seconds => {
-        let minutesToDisplay = Math.round(seconds / 60);
-        let secondsToDisaplay = Math.round(seconds % 60);
+        let minutesToDisplay = Math.floor(seconds / 60);
+        let secondsToDisaplay = Math.floor(seconds % 60);
 
         return `${minutesToDisplay}m ${secondsToDisaplay}s`
     }

@@ -13,7 +13,7 @@ const TrainerHome = props => {
     }
 
     return <div>
-        {!props.sessionActive ? <div className="flex-row-center">
+        {!props.sessionActive ? <div className="flex-row-center mt-2">
                 <input style={{minWidth:"2vw"}} onChange={handleAvailabilityChange} type="checkbox" id="offline"
                     checked={isAvailable} />Online
         </div> : ""}

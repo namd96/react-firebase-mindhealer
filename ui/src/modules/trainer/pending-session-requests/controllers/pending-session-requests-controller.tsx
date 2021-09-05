@@ -23,8 +23,8 @@ const PendingSessionRequestsController = props => {
     return <div>
         {
             pendingSessions.length ? pendingSessions.map((sess, idx) => {
-                return <div key={idx}>
-                     #{(idx + 1)} -
+                return <div key={idx} className="mt-1">
+                     {/* {(idx + 1)}  */}
                      <button onClick={() => handleJoinSession(sess)}>
                         Join Now 
                     </button>
@@ -33,7 +33,7 @@ const PendingSessionRequestsController = props => {
                      Session - {new Date(sess.requested_on.seconds*1000).toLocaleString()}
                     </span> &nbsp;
                 </div>
-            }) : <div>
+            }) : <div className="primary-text gray">
                 No Session Requests as of now
             </div>
         }

@@ -5,6 +5,8 @@ import HappyButton from "../../components/buttons/happy-button";
 const SignIn = props => {
 
     return <div>
+      <div className="gray large-text  flex-row-center">Online Meditation</div>
+
          <div className="flex-col-center">
          <input className = "mt-2" onChange={props.handleInputChange} type="text" name="un" placeholder="email"/>
          <input className = "mt-2" onChange={props.handleInputChange} type="text" name="pw" placeholder="password"/>

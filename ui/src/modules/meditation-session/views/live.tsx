@@ -13,17 +13,17 @@ const LiveView = (props:ILiveView) => {
              <div>
               SESSION ONGOING,
              </div>
-             <div>
+             <div className="gray small-text">
                 REQD ON:  {new Date(session.requested_on.seconds*1000).toLocaleString()}
              </div>
-             <div>
+             <div className="gray small-text">
                 STARTED ON:  {new Date(sessionStartedOn).toLocaleString()}
              </div>
              {!GlobalContext.userProfile.isSeeker
-             ?<button onClick={handleEndSession}>
+             ?<button onClick={handleEndSession} className="mt-2">
                  END now
              </button>:''}
-              </div> :<> no live session going on </>}
+              </div> :<span className="gray large-text"> No live session going on </span>}
       </div>
     </>
 }

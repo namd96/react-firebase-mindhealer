@@ -3,9 +3,6 @@ import { auth, COLS, db } from "../config/firebase-config";
 import { doc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged, sendSignInLinkToEmail, signInAnonymously } from "firebase/auth";
 
-export const unsub = onSnapshot(doc(db, "users", "seekers"), (doc) => {
-  console.log("Current data: ", doc.data());
-});
 
 export async function addUsers(payload, isTypeSeekerOrTrainer) {
   const docRef = await addDoc(collection(db, isTypeSeekerOrTrainer || "seekers"), payload);

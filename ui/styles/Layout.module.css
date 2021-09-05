@@ -1,10 +1,10 @@
 .header{
     height: 7vh;
-    background-color: #0066ffaf;
+    background-color: var(--theme);;
 }
 .footer{
     height: 10vh;
-    background-color: #0066ffaf;
+    background-color:  var(--theme);;
     position: fixed;
     bottom: 0;
     width: 100vw;

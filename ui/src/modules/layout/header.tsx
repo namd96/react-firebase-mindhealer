@@ -8,10 +8,10 @@ const Header = props => {
    <div className="flex-row-betn width-90">
         <div className="branding">Mind Healer</div>
 
-       {!GlobalContext.loggedIn ?<div></div> : <>{GlobalContext.userProfile?.name} 
-        &nbsp;({GlobalContext.userProfile?.type.toUpperCase()}) </>}
+       {!GlobalContext.loggedIn ?<div></div> : <span className="branding">{GlobalContext.userProfile?.name} 
+        &nbsp;({GlobalContext.userProfile?.type.toUpperCase()}) </span>}
 
-      <a href="/">  <DullButton onClickHandler={()=>{}}>Logout</DullButton> </a>
+      {GlobalContext.loggedIn ? <a href="/">  <DullButton className="outline" onClickHandler={()=>{}}>Logout</DullButton> </a> : <div></div>}
   </div>
     </div>
 }

@@ -38,7 +38,7 @@ const AvailableTrainersListController = props => {
             <div className="flex-row-center ">
                <button disabled={sessionPending || count == 0} onClick={() => handleRequestSession()}>Request a Session</button>
             </div>
-            {sessionPending ? "You already have a request pending for a session." : ""}
+           <div className="gray mt-1"> {sessionPending ? "You have a request pending for a session." : ""}</div>
          </div>
      
    </div>
