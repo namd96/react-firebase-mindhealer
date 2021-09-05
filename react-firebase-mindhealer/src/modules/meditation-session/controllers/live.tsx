@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { mySessionsListener, updateTrainer, endSession } from '../../../utils/manage-sessions';
+import { mySessionsListener, endSession } from '../../../utils/manage-sessions';
 import globalContext from "../../../global-state-manager/global-context";
 import LiveView from "../views/live";
+import { updateTrainer } from "../../../utils/manage-users";
 
 
 const LiveSessionCtrl = props => {
