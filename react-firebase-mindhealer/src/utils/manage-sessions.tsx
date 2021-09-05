@@ -59,9 +59,3 @@ export const endSession = async (session) => {
   });
 }
 
-export const updateTrainer = async (trainerID, available=false) => {
-  let trainerRef = doc(db, COLS.USER_PROFILES, trainerID);
-  await updateDoc(trainerRef, {
-    availability: available,
-  });
-}

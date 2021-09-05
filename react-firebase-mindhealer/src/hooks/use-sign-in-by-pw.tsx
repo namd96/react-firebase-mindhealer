@@ -44,7 +44,9 @@ const useSignIn = (props) => {
                 userObj = {
                     ...userObj,
                     ...docSnap.data(), // type name _uid
-                    ... { _id: docSnap.id }   // _id of profile
+                    ... { _id: docSnap.id ,
+                    availability : docSnap.data().availability
+                    }   // _id of profile
                 };
                 GlobalContext.setAuth(true);
                 GlobalContext.setUserProfile(userObj);

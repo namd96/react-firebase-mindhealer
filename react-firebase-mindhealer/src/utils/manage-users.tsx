@@ -1,5 +1,5 @@
-import { collection, addDoc } from "firebase/firestore";
-import { auth, db } from "../config/firebase-config";
+import { collection, addDoc, updateDoc } from "firebase/firestore";
+import { auth, COLS, db } from "../config/firebase-config";
 import { doc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged, sendSignInLinkToEmail, signInAnonymously } from "firebase/auth";
 
@@ -12,6 +12,7 @@ export async function addUsers(payload, isTypeSeekerOrTrainer) {
   // console.log("Document written with ID: ", docRef.id);
 }
 
+
 export async function getTrainers() {
   try {
     const docRef = await addDoc(collection(db, "trainers"), {
@@ -23,7 +24,12 @@ export async function getTrainers() {
     console.error("Error adding document: ", e);
   }
 }
-
+export const updateTrainer = async (trainerID, available=false) => {
+  let trainerRef = doc(db, COLS.USER_PROFILES, trainerID);
+  await updateDoc(trainerRef, {
+    availability: available,
+  });
+}
 export async function signInUsers_(email) {
   var actionCodeSettings = {
     url: 'https://react-firebase-mindhealer.web.app' + email,
@@ -45,3 +51,4 @@ export async function signInUsers_(email) {
     });
 
 }
+

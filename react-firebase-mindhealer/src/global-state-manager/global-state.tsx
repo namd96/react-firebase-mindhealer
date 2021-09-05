@@ -8,9 +8,9 @@ const GlobalState = props => {
     name: 'Unknown',
     _id:'',   // profile id
     _uid: '' ,// auth user id
-    available:false ,// for both
     mode:'picky',//auto only for trainer,
-    isSeeker : true
+    isSeeker : true,
+    availability:true
   })
   const [loggedIn, setAuth] = useState(false)
 

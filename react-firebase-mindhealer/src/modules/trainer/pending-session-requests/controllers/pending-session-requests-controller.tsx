@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import globalContext from "../../../../global-state-manager/global-context";
-import { allSessionsListener, updateSession, updateTrainer } from "../../../../utils/manage-sessions";
+import { allSessionsListener, updateSession } from "../../../../utils/manage-sessions";
+import { updateTrainer } from "../../../../utils/manage-users";
 
 const PendingSessionRequestsController = props => {
     const GlobalContext = useContext(globalContext)
