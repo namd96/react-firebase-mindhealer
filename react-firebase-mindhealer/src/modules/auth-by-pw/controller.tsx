@@ -15,8 +15,10 @@ const LoginController = props => {
         });
     }
     const handleSubmitLoginForm = () => {
-        console.log('loginPayload',loginPayload);
-        setSignIn(loginPayload)
+        console.log('loginPayload', loginPayload);
+        setSignIn(loginPayload).catch(err => {
+            alert("Login Failed!")
+        })
     }
     return <View handleSubmitLoginForm={handleSubmitLoginForm} handleInputChange={handleInputChange} />
 }

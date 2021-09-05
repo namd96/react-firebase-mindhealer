@@ -13,10 +13,11 @@ const TrainerHome = props => {
     }
 
     return <div>
-       {!isAvailable ? "You are offline" : <PendingSessionRequestsController />}
-    {!props.sessionActive ?  <>  <input onChange={handleAvailabilityChange} type="checkbox" id="offline"
-            checked={isAvailable} />
-       Go {isAvailable ? " Offline" : " Online"} </> : ""}
+        {!props.sessionActive ? <div className="flex-row-center">
+                <input style={{minWidth:"2vw"}} onChange={handleAvailabilityChange} type="checkbox" id="offline"
+                    checked={isAvailable} />Online
+        </div> : ""}
+        {!isAvailable ? "You are offline" : <PendingSessionRequestsController />}
     </div>
 }
 export default TrainerHome;

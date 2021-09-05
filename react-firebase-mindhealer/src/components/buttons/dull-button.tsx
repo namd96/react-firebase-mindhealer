@@ -5,8 +5,8 @@ interface IDullButton {
 }
 const DullButton = (props:IDullButton) => {
     let {onClickHandler} = props;
-    return <div onClick={onClickHandler} className={styles.dullButton + " flex-row-center " + styles.buttonContainer }>
+    return <button onClick={onClickHandler} className={styles.dullButton + " flex-row-center "  }>
         {props.children}
-    </div>
+    </button>
 }
 export default DullButton;

@@ -78,3 +78,14 @@ a {
   font-size: large;
   font-weight: 500;
 }
+
+button{
+  height: 5vh;
+  width: auto;
+  min-width: 10vw;
+}
+input{
+  height: 4vh;
+  width: auto;
+  min-width: 8vw;
+}

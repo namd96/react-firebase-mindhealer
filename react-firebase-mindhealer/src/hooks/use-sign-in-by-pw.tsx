@@ -22,7 +22,7 @@ const useSignIn = (props) => {
         // up = await getDocs(query())
         // soc = up.docs[0]
 
-        signInWithEmailAndPassword(auth, payload.un, payload.pw)
+        return signInWithEmailAndPassword(auth, payload.un, payload.pw)
             .then(userCredential => {
                 userObj = {
                     ...userObj,
@@ -54,6 +54,7 @@ const useSignIn = (props) => {
             })
             .catch(anyError => {
                 console.log('[uspw] [anyError]', anyError);
+                throw anyError
             });
     }
 

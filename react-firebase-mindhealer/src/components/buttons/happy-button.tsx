@@ -5,8 +5,8 @@ interface IHappyButton {
 }
 const HappyButton = (props:IHappyButton) => {
     let {onClickHandler} = props;
-    return <div onClick={onClickHandler} className={styles.happyButton + " flex-row-center " + styles.buttonContainer }>
+    return <button onClick={onClickHandler} className={styles.happyButton + " flex-row-center "  }>
         {props.children}
-    </div>
+    </button>
 }
 export default HappyButton;
