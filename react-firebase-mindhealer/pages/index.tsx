@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import globalContext from '../src/global-state-manager/global-context'
 // import LoginController from '../src/modules/auth/controllers/login-controller'
 import LoginController from '../src/modules/auth-by-pw/controller'
@@ -7,17 +7,22 @@ import PendingSessionRequestsController from '../src/modules/trainer/pending-ses
 import styles from '../styles/Home.module.css'
 import LiveSession from '../src/modules/meditation-session/controllers/live'
 export default function ListOfUsers() {
-  const GlobalContext = useContext(globalContext)
+  const GlobalContext = useContext(globalContext);
+  const [sessionActive, setSessionActive] = useState(false)
+const onSessionActive = (value) => {
+  setSessionActive(value)
+}
+
   return (
 
     <div className={styles.container}>
-      {!GlobalContext.userDetails.isLoggedIn
+      {!GlobalContext.loggedIn
         ? <LoginController />
         : <>
-         <LiveSession></LiveSession>
-         {GlobalContext.userDetails?.type == "seeker"
+         <LiveSession onSessionActive = {onSessionActive}></LiveSession>
+       {sessionActive ? "" :<>  {GlobalContext.userProfile.isSeeker
           ? <AvailableTrainers />
-          : <PendingSessionRequestsController />} 
+          : <PendingSessionRequestsController  />} </>}
           </>}
     </div>
   )

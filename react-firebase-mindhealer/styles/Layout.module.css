@@ -1,0 +1,17 @@
+.header{
+    height: 4vw;
+    background-color: #0066ffaf;
+}
+.footer{
+    height: 7vw;
+    background-color: #0066ffaf;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
+.contactUs{
+    color: white;
+}
+.footer-filler{
+    height: 7vw;
+}

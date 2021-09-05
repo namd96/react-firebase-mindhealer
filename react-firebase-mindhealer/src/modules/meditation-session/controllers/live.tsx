@@ -13,18 +13,20 @@ const LiveSessionCtrl = props => {
    const [currTimeMs, setCurrTime] = useState(new Date().getTime());
    
     useEffect(() => {
+        props.onSessionActive(!!session)
         if(!session) return;
         let interval =setInterval(()=>{
             setCurrTime(new Date().getTime())
-        },1000)
+        },1000);
         return ()=>{
           clearInterval(interval)
         }
     },[session]);
+
     useEffect(() => {
       //TODO:::: change name as a listener
       mySessionsListener(isSeeker,myUID,(x) =>{
-           setSession(x)
+           setSession(x);
         });
    }, []);
    const handleLeaveSession = () => {

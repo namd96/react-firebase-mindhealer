@@ -26,11 +26,11 @@ const PendingSessionRequestsController = props => {
                 return <div key={idx}>
                      #{(idx + 1)} -
                      <button onClick={() => handleJoinSession(sess)}>
-                        Join Now {idx+1}
+                        Join Now 
                     </button>
                     &nbsp;
                     <span>
-                     Session - {new Date(sess.requested_on.nanoseconds).toDateString()}
+                     Session - {new Date(sess.requested_on.seconds*1000).toLocaleString()}
                     </span> &nbsp;
                 </div>
             }) : <div>

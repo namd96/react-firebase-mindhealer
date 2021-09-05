@@ -44,12 +44,6 @@ const useSignIn = (props) => {
 
                 GlobalContext.setAuth(true);
                 GlobalContext.setUserProfile(userObj);
-                GlobalContext.setUserDetailsForApp({
-                    ...GlobalContext.userDetails,
-                    isLoggedIn: true,
-                    //type: userObj.type,
-                    ...userObj
-                })
                 Router.push("/");
             })
             .catch(anyError => {

@@ -73,3 +73,8 @@ a {
   width: 90vw;
   margin: 0px auto;
 }
+.branding{
+  color: white;
+  font-size: large;
+  font-weight: 500;
+}

@@ -8,14 +8,9 @@ export default React.createContext({
         _id:'',   // profile id
         _uid: '' ,// auth user id
         mode:'picky',//auto only for trainer
-        available:false // for both
+        available:false, // for both,
+        isSeeker: true
     },
-    userDetails: {
-        type: "seeker",
-        userId: "",
-        isLoggedIn: false
-    },
-    setUserDetailsForApp: (detailsObj) => { },
     setUserProfile: (detailsObj) => { },
     setAuth: (loggedIn) => { }
 })

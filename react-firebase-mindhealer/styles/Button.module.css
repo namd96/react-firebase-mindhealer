@@ -1,0 +1,15 @@
+.dullButton{
+    background-color: #808080;
+
+}
+.buttonContainer{
+    color: white;
+    font-size: 1vw;
+    width: auto;
+    min-width: 10vw;
+    height: 2vw;
+}
+.happyButton{
+    background-color: #0066ffaf;
+
+}
