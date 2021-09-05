@@ -13,9 +13,9 @@ const LoginView = props => {
     {/* <input  onChange={handleInputChange} type="text" name="last"/> */}
    <br/>
    <div className="flex-row-center">
-        <input  onChange={handleInputChange} type="radio" id="css" name="user_type" value="seekers"/>
+        <input  onChange={handleInputChange} type="radio" id="css" name="user_type" value="seeker"/>
         <label>Seeker</label><br/>
-        <input  onChange={handleInputChange} type="radio" id="javascript" name="user_type" value="trainers"/>
+        <input  onChange={handleInputChange} type="radio" id="javascript" name="user_type" value="trainer"/>
         <label>Trainer</label>
     </div> 
    <br/>

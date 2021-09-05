@@ -52,7 +52,24 @@ a {
 
 .flex-row-betn{
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: space-between;
+}
+.width-90{
+  width: 90vw;
+  margin: 0px auto;
+}
+
+.mt-2{
+  margin-top: 2vw;
+}
+
+.mt-5{
+  margin-top: 5vw;
+}
+
+.width-90{
+  width: 90vw;
+  margin: 0px auto;
 }
