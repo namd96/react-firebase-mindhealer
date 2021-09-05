@@ -7,7 +7,7 @@ import globalContext from '../global-state-manager/global-context';
 
 const useSignIn = (props) => {
     const [authorized, setAuthorized] = useState(false)
-    let  payload  = props;// initial payload
+    let payload = props;// initial payload
     const GlobalContext = useContext(globalContext)
     useEffect(() => {
         if (payload) {
@@ -16,7 +16,7 @@ const useSignIn = (props) => {
     }, [payload])
 
     function signInUsers(payload) {
-        let userObj = { _uid: '' };
+        var userObj = { _uid:"", _id:"" };
 
         // uc = await signInWithEmailAndPassword();
         // up = await getDocs(query())
@@ -25,6 +25,7 @@ const useSignIn = (props) => {
         signInWithEmailAndPassword(auth, payload.un, payload.pw)
             .then(userCredential => {
                 userObj = {
+                    ...userObj,
                     _uid: userCredential.user.uid,
                     // email: userCredential.user.email
                 }
@@ -43,7 +44,7 @@ const useSignIn = (props) => {
                 userObj = {
                     ...userObj,
                     ...docSnap.data(), // type name _uid
-                    _id: docSnap.id    // _id of profile
+                    ... { _id: docSnap.id }   // _id of profile
                 };
                 GlobalContext.setAuth(true);
                 GlobalContext.setUserProfile(userObj);
