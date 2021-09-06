@@ -1,10 +1,10 @@
-
+Technologies:
 
 1. firebase auth
 2. firebase firestore
 
 
-Collections
+Firestore Collections
 
 1. user-profiles 
     _uid, name, type 
